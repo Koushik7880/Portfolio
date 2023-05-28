@@ -8,6 +8,7 @@ import portfolioPic from '../../public/images/profile/Koushik-2.png'
 import { useMotionValue, useSpring, useInView } from 'framer-motion'
 import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
+import Education from '@/components/Education'
 
 const AnimatedNumbers = ({ value }) => {
   const ref = useRef(null)
@@ -110,7 +111,8 @@ const about = () => {
             </div>
           </div>
           <Skills />
-          <Experience/>
+          <Experience />
+          <Education />
         </Layout>
       </main>
     </>
