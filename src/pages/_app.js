@@ -25,5 +25,5 @@ export default function App({ Component, pageProps }) {
   )
 }
 
-// 2.56.00
+// 3.27.00
 // https://www.youtube.com/watch?v=Yw7yWHigGKI
