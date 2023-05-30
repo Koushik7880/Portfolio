@@ -9,6 +9,10 @@ import article1 from '../../public/images/articles/pagination component in react
 import article2 from '../../public/images/articles/create loading screen in react js.jpg'
 import { motion, useMotionValue } from 'framer-motion'
 import article3 from '../../public/images/articles/create modal component in react using react portals.png'
+import article4 from '../../public/images/articles/form validation in reactjs using custom react hook.png'
+import article5 from '../../public/images/articles/smooth scrolling in reactjs.png'
+import article6 from '../../public/images/articles/algo3.png'
+import article7 from '../../public/images/articles/algo2.JPG'
 
 const FramerImage = motion(Image)
 
@@ -19,7 +23,7 @@ const MovingImg = ({ title, img, link }) => {
 
   function handleMouse(event) {
     imgRef.current.style.display = 'inline-block'
-    x.set(every.pageX)
+    x.set(event.pageX)
     y.set(-10)
   }
   function handleMouseLeave(event) {
@@ -38,11 +42,14 @@ const MovingImg = ({ title, img, link }) => {
       <h2 className="capitalize text-xl font-semibold hover:underline">
         {title}
       </h2>
-      <Image
+      <FramerImage
+        style={{ x: x, y: y }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
         ref={imgRef}
         src={img}
         alt={title}
-        className="w-96 h-auto hidden absolute rounded-lg"
+        className="z-10 w-96 h-auto hidden absolute rounded-lg"
       />
     </Link>
   )
@@ -50,10 +57,14 @@ const MovingImg = ({ title, img, link }) => {
 
 const Article = ({ img, title, date, link }) => {
   return (
-    <li className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4">
+    <motion.li
+      initial={{ y: 200 }}
+      whileInView={{ y: 0, transition: { duration: 0.5, ease: 'easeInOut' } }}
+      className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4"
+    >
       <MovingImg title={title} img={img} link={link} />
       <span className="text-primary font-semibold pl-4">{date}</span>
-    </li>
+    </motion.li>
   )
 }
 
@@ -98,20 +109,20 @@ const articles = () => {
           <AnimatedText text="Words Can Change The World!" className="mb-16" />
           <ul className="grid grid-cols-2 gap-16">
             <FeatureArticle
-              title="Build A Custom Pagination Component In Reactjs From Scratch."
-              summary="Learn how to build a custom pagination component in ReactJS from scratch.
-            Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
+              title="Searching Algorithm(Linear & Binary Search) implement with JavaScript."
+              summary="Learn how searching algorithm actually works.
+            Follow this blog to implement searching algorithm in a real scenerio."
               time="9 min read"
-              link="/"
-              img={article1}
+              link="https://medium.com/@koushik78bd/searching-algorithm-linear-binary-search-implement-with-javascript-69444b35e401"
+              img={article6}
             />
             <FeatureArticle
-              title="Build A Custom Pagination Component In Reactjs From Scratch."
-              summary="Learn how to build a custom pagination component in ReactJS from scratch.
-            Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
+              title="Time & Space Complexity in Data Stracture."
+              summary="Learn how Time & Space Complexity actually calculate.
+              Follow this blog and learn how to calculate Time & Space Complexity of a program."
               time="9 min read"
-              link="/"
-              img={article2}
+              link="https://medium.com/@koushik78bd/time-and-space-complexity-analysis-2fcc46e80c9"
+              img={article7}
             />
           </ul>
           <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
@@ -128,7 +139,25 @@ const articles = () => {
               title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
               date="March 22, 2023"
               link="/"
-              img={article3}
+              img={article4}
+            />
+            <Article
+              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
+              date="March 22, 2023"
+              link="/"
+              img={article5}
+            />
+            <Article
+              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
+              date="March 22, 2023"
+              link="/"
+              img={article1}
+            />
+            <Article
+              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
+              date="March 22, 2023"
+              link="/"
+              img={article2}
             />
             <Article
               title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
@@ -140,31 +169,13 @@ const articles = () => {
               title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
               date="March 22, 2023"
               link="/"
-              img={article3}
+              img={article4}
             />
             <Article
               title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
               date="March 22, 2023"
               link="/"
-              img={article3}
-            />
-            <Article
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={article3}
-            />
-            <Article
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={article3}
-            />
-            <Article
-              title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-              date="March 22, 2023"
-              link="/"
-              img={article3}
+              img={article5}
             />
           </ul>
         </Layout>
